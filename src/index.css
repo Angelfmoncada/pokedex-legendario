@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* Pokemon-themed color palette */
+:root {
+  --pokemon-red: #dc2626;
+  --pokemon-blue: #1e40af;
+  --pokemon-yellow: #fbbf24;
+  --pokemon-green: #16a34a;
+  --pokemon-purple: #7c3aed;
+  --pokemon-orange: #ea580c;
+  --pokemon-pink: #ec4899;
+  --pokemon-gray: #6b7280;
+  --pokemon-dark: #1f2937;
+  --pokemon-light: #f8fafc;
+}
+
+html{
+    width:100%;
+    height:100%;
+}
+
+body{
+    min-height: 100vh;
+    @apply flex flex-col;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body #root{
+    @apply flex flex-col flex-1 shrink-0 min-h-full;
+}
+
+h1 {
+    @apply text-4xl font-black tracking-wider;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    position: relative;
+    letter-spacing: 3px;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease-in-out infinite;
+    filter: blur(8px);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+header {
+    @apply flex justify-between items-center px-6 py-6;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(30, 30, 50, 0.9));
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3) 1;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+header nav ul {
+    @apply flex gap-4;
+}
+
+header nav ul li a {
+    @apply inline-block px-4 py-2 rounded-full font-semibold transition-all duration-300;
+    background: linear-gradient(45deg, var(--pokemon-blue), var(--pokemon-purple));
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+main {
+    @apply flex-1;
+}
+
+footer {
+    background: linear-gradient(45deg, var(--pokemon-dark), var(--pokemon-gray));
+    @apply text-white text-center px-4 py-6;
+    font-weight: 600;
+}
+
+.container {
+    @apply w-full px-2 md:max-w-[1025px] md:mx-auto;
+}
+
+.half-panel {
+    @apply w-full flex flex-row;
+}
+.half-panel.inverted {
+    @apply md:flex-row-reverse;
+}
+.half-panel section {
+    @apply flex-1 w-full md:w-1/2;
+}

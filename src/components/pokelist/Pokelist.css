@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+.poke-list {
+    @apply w-full max-w-7xl mx-auto px-4 py-8;
+}
+
+.poke-list h2 {
+    @apply text-6xl font-black text-center mb-12 uppercase tracking-widest;
+    background: linear-gradient(135deg, #00d4ff, #ff0080, #ffff00, #00ff88);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: neonPulse 2s ease-in-out infinite alternate;
+    position: relative;
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    filter: drop-shadow(0 0 15px rgba(255, 0, 128, 0.6));
+}
+
+.poke-list h2::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, #00d4ff, #ff0080, #ffff00, #00ff88);
+    background-size: 300% 300%;
+    animation: neonPulse 2s ease-in-out infinite alternate;
+    filter: blur(20px);
+    opacity: 0.4;
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.poke-list h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 4s linear infinite;
+    z-index: -2;
+}
+
+@keyframes neonPulse {
+    0% {
+        background-position: 0% 50%;
+        filter: brightness(1) saturate(1);
+    }
+    100% {
+        background-position: 100% 50%;
+        filter: brightness(1.3) saturate(1.5);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.card-holder {
+    @apply grid gap-6 justify-items-center;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    margin-bottom: 3rem;
+}
+
+.load-more-container {
+    @apply flex justify-center mt-8;
+}
+
+.load-more-btn {
+    @apply px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300;
+    background: linear-gradient(45deg, var(--pokemon-blue), var(--pokemon-purple));
+    color: white;
+    border: none;
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+    cursor: pointer;
+}
+
+.load-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(30, 64, 175, 0.4);
+    background: linear-gradient(45deg, var(--pokemon-purple), var(--pokemon-blue));
+}
+
+.load-more-btn:active {
+    transform: translateY(-1px);
+}
+
+.error-message {
+    @apply text-center py-8 px-4 rounded-2xl;
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid var(--pokemon-red);
+    color: var(--pokemon-red);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
