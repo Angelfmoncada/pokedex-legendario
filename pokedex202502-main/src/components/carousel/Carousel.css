@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.carousel {
+    @apply relative w-full sm:h-96 md:h-[480px] lg:h-[80vh] overflow-hidden;
+}
+
+.carousel .track {
+    @apply flex flex-1 flex-row shrink-0;
+}
+.carousel .track .carousel-slide{
+    @apply w-[100vw] sm:h-96 md:h-[480px] lg:h-[80vh] relative shrink-0;
+}
+
+.carousel .track .carousel-slide img{
+    @apply w-full h-full object-cover;
+}
+
+.carousel .track .carousel-slide .carousel-action{
+    @apply absolute w-96 p-4 rounded-2xl top-1/2 left-1/2 -translate-1/2;
+}

@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+.card {
+    @apply max-w-72 rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--pokemon-yellow);
+}
+
+.card-header {
+    @apply overflow-hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-header img {
+    @apply w-full h-full object-contain p-6 transition-transform duration-300;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    max-width: 160px;
+    max-height: 160px;
+}
+
+.card:hover .card-header img {
+    transform: scale(1.15);
+}
+
+.pokemon-name {
+    @apply text-center font-bold text-xl capitalize px-4 py-3;
+    background: linear-gradient(135deg, var(--pokemon-red), var(--pokemon-orange));
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.5px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 800;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .pokemon-name {
+    background: linear-gradient(135deg, var(--pokemon-orange), var(--pokemon-red));
+    transform: scale(1.02);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.card-body {
+    @apply px-4 py-3;
+}
+
+.card-footer {
+    @apply px-4 pb-4 flex flex-row flex-wrap;
+}
+
+.card-footer button {
+    @apply w-full py-3 px-4 rounded-xl font-semibold transition-all duration-300;
+    background: linear-gradient(45deg, var(--pokemon-red), var(--pokemon-orange));
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.card-footer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    background: linear-gradient(45deg, var(--pokemon-orange), var(--pokemon-red));
+}
+
+.card-footer button:active {
+    transform: translateY(0);
+}
